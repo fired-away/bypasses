@@ -4,12 +4,9 @@ local HookFunction = HookFunction or hookfunction or hook_function or detour_fun
 local GetNCMethod = getnamecallmethod or get_namecall_method;
 local CheckCaller = checkcaller or check_caller;
 local GetRawMT = get_raw_metatable or getrawmetatable or getraw_metatable;
+local HookMetaMethod = hookmetamethod
 
 assert(HookFunction  and GetNCMethod and CheckCaller and Connections, "Exploit is not supported");
-
-local function HookMetaMethod(Object, MetaMethod, Function)
-    return HookFunction(assert(GetRawMT(Object)[MetaMethod], "Invalid Method"), Function);
-end 
 
 local TblDataCache = {};
 local FindDataCache = {};
